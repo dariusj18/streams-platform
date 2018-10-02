@@ -253,7 +253,7 @@ class EloquentQueryBuilder extends Builder
                     }
 
                     $this
-                        ->groupBy($model->getTableName() . '.id')
+                        //->groupBy($model->getTableName() . '.id')
                         ->select($model->getTableName() . '.*')
                         ->where(
                             function (Builder $query) use ($model) {
