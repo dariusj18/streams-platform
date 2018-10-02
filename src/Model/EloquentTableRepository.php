@@ -121,7 +121,7 @@ class EloquentTableRepository implements TableRepositoryInterface
             }
         }
 
-        if ($builder->getTableOption('sortable')) {
+        if (count(array_filter($query->getQuery()->orders, function ($e) { return $e['column'] == 'sort_order'; })) == 0 && $builder->getTableOption('sortable')) {
             $query = $query->orderBy('sort_order', 'ASC');
         }
 
